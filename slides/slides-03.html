@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Topic 3</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+        class: center, middle
+
+        # Тopic 3. Python Syntax
+
+        ---
+
+        # Lines, Explicit and Implicit Line joining
+
+        - Logical lines
+        - Physical lines
+
+        ```python
+        x = 1
+        z = a + 1000 \
+            + 2000 + 3000
+        s = '''This is
+        a long line of text'''
+        y = (
+            100,
+            200,
+            )
+        ```
+
+        9 physical lines, 4 logical lines
+
+        ```python
+        x = 100; y = 200
+        ```
+
+        1 physical, 1 logical
+
+        ---
+
+        # Python Syntax Elements
+
+        - Encoding declaration
+        - Comments
+        - Docstrings (special case of string literal)
+        - Blank lines
+        - Indentation
+        - Whitespace between tokens
+        - **Keywords**
+        - **Identifiers**
+            - Reserved classes of identifiers
+        - **Literals**
+        - **Operators**
+        - **Delimiters**
+
+        ---
+
+        # Encoding declaration
+
+        First or second line in file:
+
+        ```python
+        # -*- coding: <encoding-name> -*-
+        ```
+
+        ```python
+        # -*- coding: utf-8 -*-
+        ```
+        ---
+
+        # Comments
+
+        - No block comments
+        - Everything after `#`
+
+        ```python
+        # single line comment
+        ```
+
+        ```python
+        x = 100  # inline comment, 2 spaces after the code by convention
+        ```
+
+        ---
+
+        # Docstrings
+
+        - Introduced in [PEP-257](https://www.python.org/dev/peps/pep-0257/)
+        - Special case of string literal used for documentation.
+        - Becomes part of function/class declaration.
+
+        ```python
+        def fibonacci(n):
+            """Generate n-th Fibonacci number."""
+        ```
+
+        ```python
+        def func():
+            """
+            Multiline docstring.
+            """
+        ```
+
+        ```python
+        class Point:
+            """Base point class in N-dimensional Euclidean space."""
+        ```
+
+        ```python
+        fibonacci.__doc__
+        func.__doc__
+        Point.__doc__
+        ```
+
+        ---
+
+        # Indentation
+
+        - Indentation consists of spaces and tabs (not recommended); mixing is not recommended
+        - Indentation starts at the beginning of the line and can't be split over multipe physical lines with `\`
+        - Recommended: 4 spaces
+        - Wrong indentation raises error
+
+        ---
+
+        # Indentation, Correct
+
+        Example of correct (but strange) indentation:
+
+        ```python
+        def perm(l):
+                # Compute the list of all permutations of l
+            if len(l) <= 1:
+                          return [l]
+            r = []
+            for i in range(len(l)):
+                     s = l[:i] + l[i+1:]
+                     p = perm(s)
+                     for x in p:
+                      r.append(l[i:i+1] + x)
+            return r
+        ```
+
+        ---
+
+        # Indentation, Incorrect
+
+        Example of incorrect indentation:
+
+        ```python
+         def perm(l):                       # error: first line indented
+        for i in range(len(l)):             # error: not indented
+            s = l[:i] + l[i+1:]
+                p = perm(l[:i] + l[i+1:])   # error: unexpected indent
+                for x in p:
+                        r.append(l[i:i+1] + x)
+                    return r                # error: inconsistent dedent
+        ```
+
+        ---
+
+        # Whitespaces Between Tokens
+
+        - Whitespaces are used to separate tokens
+        - Whitespace is needed between two tokens only if their concatenation could otherwise be interpreted as a different token:
+            `ab` vs. `a b`.
+        - Whitespace characters can be used interchangeably: space, tab formfeed
+            -  except at the beginning of a logical line or in string literals
+
+        ---
+
+        # 35 Keywords (Python 3.7.4)
+
+
+        .pull-left[
+        - True, False, None
+        - and, or, not, is, in
+        - as
+        - assert
+        - async, await
+        - class, def, lambda
+        - del
+        - for, while, break, continue
+        ]
+        .pull-right[
+        - global, nonlocal
+        - if, elif, else
+        - import, from
+        - pass
+        - raise, try, except, finally
+        - return, yield
+        - with
+        ]
+
+        ---
+
+        # Identifiers
+
+        - **Case sensitive**
+        - ASCII characters: `a`-`z`, `A`-`Z`, `_`, and `0`-`9` (except the first character)
+        - Unicode characters: [PEP-3131](https://www.python.org/dev/peps/pep-3131/),
+            full list [see here](https://www.dcl.hpi.uni-potsdam.de/home/loewis/table-3131.html)
+
+        Examples:
+
+        ```python
+        >>> name = 1
+        >>> Name = 2
+        >>> name, Name
+        (1, 2)
+        >>> 䜃 = 1
+        >>> я_плакал = 987
+        >>> _ = 100500
+        ```
+
+        ```python
+        >>> 1Name
+          File "<stdin>", line 1
+            1Name
+                ^
+        SyntaxError: invalid syntax
+        ```
+
+        ---
+
+        # Identifiers: Naming Conventions
+
+        - Mostly lowercase
+        - Keep names as short as possible, but preserve readability and make self-descriptive names
+        - `snake_case` over `camelCase`
+        - Functions, variables, class members: `lowercase_snake_case`
+        - Class names: `FirstLetterUppercaseCamelCase`
+        - Constants: `UPPERCASE_SNAKE_CASE`
+
+        ---
+
+        # Identifiers: Reserved
+
+        - `_`
+            - in the interactive interpreter, the result of last evaluation
+        - `_*`
+            - hidden names: not imported by `from module import *`
+            - protected class members (convention)
+        - `__*`
+            - implementation of "protected" methods in Python
+        - `__*__`
+            - [special method names](https://docs.python.org/3/reference/datamodel.html#specialnames)
+            - special module variables (convention):
+                `__author__`, `__copyright__`, `__license__`, `__version__`, etc.
+
+        ---
+
+        # Literals
+
+        - String, bytes
+        - Number:
+            - Integer
+            - Floating-point
+            - Imaginary
+        - See [Python documentation](https://docs.python.org/3/reference/lexical_analysis.html#literals)
+
+        **Note:** `True`, `False`, `None` – are **keywords**, although they are used like literals.
+
+        ---
+
+        # Operators
+
+        - Arithmetic: `+` `-` `*` `**` `/` `//` `%` `@`
+        - Bitwise: `<<` `>>` `&` `|` `^` `~`
+        - Logical: `<` `>` `<=` `>=` `==` `!=`
+
+        **Note:** `and`, `or`, `not` – are **keywords**, although they act like logical operators.
+
+        Python supports operators overloading.
+
+        ---
+
+        # Delimiters
+
+        - `(` `)` `[` `]` `{` `}`
+        - `.`
+        - `,` `:` `;`
+        - `@`
+        - `->`
+        - `=`
+        - `+=`, `-=`, `*=`, `/=`, `//=`, `%=`, `@=`, `&=`, `|=`, `^=`, `>>=`, `<<=`, `**=`
+
+        ---
+
+        # Assignments
+
+        - Continue to work on Assignments 1-A, 1-B
+        - Make your commits and pushes
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+        let slideshow = remark.create({
+          highlightLines: true,
+          highlightSyntax: "dark",
+          ratio: "4:3",
+        });
+    </script>
+  </body>
+</html>

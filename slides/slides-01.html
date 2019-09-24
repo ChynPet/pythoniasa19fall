@@ -3,25 +3,7 @@
   <head>
     <title>Topic 1</title>
     <meta charset="utf-8">
-    <style>
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-
-      body { font-family: 'Noto Serif'; }
-      h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
-        font-weight: normal;
-      }
-
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-
-      .pull-left { float: left; width: 48%; }
-      .pull-right { float: right; width: 48%; }
-
-      li { margin-bottom: 1ex; }
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <textarea id="source">
@@ -103,6 +85,10 @@
 
         ---
 
+        # PEP
+
+        ---
+
         # Python Overview
 
         - Python is a **high-level**, **interpreted**, **interactive** and **object-oriented** **scripting language**.
@@ -115,6 +101,7 @@
         # Python Features
 
         - **Interpreted Language**. Python is processed at runtime by interpreter.
+        - **Automatic Memory Managementt**. Python implements Garbage Collection.
         - **Object-Oriented Language**. It supports object-oriented features and techniques of programming.
         - **Interactive Language**. Users can interact with the python interpreter directly for writing programs.
         - **Easy Language**. Python is easy to learn especially for beginners.
@@ -127,6 +114,10 @@
 
         ---
 
+        # Python Implementations
+
+        ---
+
         # Python Interpreter
 
         ```
@@ -136,6 +127,10 @@
         Type "help", "copyright", "credits" or "license" for more information.
         >>>
         ```
+
+        Exit Python Interpreter:
+        - `exit()`
+        - Ctrl+D
 
         ---
 
@@ -168,13 +163,7 @@
 
         # Python Syntax: String Literals
 
-        - Single or double quoted (single quoted preferred):
-            ```python
-            >>> s = 'Hello'
-            >>> t = "world"
-            ```
-
-        - Use quotes with or without escape characters:
+        - Single or double quoted (single quoted preferred), escape characters:
             ```python
             >>> print('"I\'m double quoted"')
             "I'm double quoted"
@@ -182,7 +171,14 @@
             'I'm single quoted'
             ```
 
-        - Use f-strings to compose string from parts, with automatic type conversion:
+        - Multiline strings enclosed with `'''` or `"""`:
+            ```python
+            >>> s = '''long
+            ... multiline
+            ... string'''
+            ```
+
+        - Use f-strings for formatting, expressions are automatically converted:
             ```python
             >>> x = 300
             >>> f'{x} Spartans'
@@ -198,24 +194,24 @@
         # The Zen of Python
 
         .pull-left[
-        - Beautiful is better than ugly.
-        - Explicit is better than implicit.
-        - Simple is better than complex.
-        - Complex is better than complicated.
-        - Flat is better than nested.
-        - Sparse is better than dense.
-        - Readability counts.
-        - Special cases aren't special enough to break the rules.
-        - Although practicality beats purity.
-        - Errors should never pass silently.
-        - Unless explicitly silenced.
+        - **Beautiful** is better than **ugly**.
+        - **Explicit** is better than **implicit**.
+        - **Simple** is better than **complex**.
+        - **Complex** is better than **complicated**.
+        - **Flat** is better than **nested**.
+        - **Sparse** is better than **dense**.
+        - Readability *counts*.
+        - Special cases *aren't* special enough to break the rules.
+        - Although **practicality** beats **purity**.
+        - Errors should *never* pass silently.
+        - Unless *explicitly* silenced.
         ]
         .pull-right[
-        - In the face of ambiguity, refuse the temptation to guess.
-        - There should be one — and preferably only one — obvious way to do it.
-        - Now is better than never.
-        - Although never is often better than *right* now.
-        - If the implementation is hard to explain, it's a bad idea.
+        - In the face of ambiguity, *refuse* the temptation to guess.
+        - There should be one — and preferably *only one* — obvious way to do it.
+        - **Now** is better than **never**.
+        - Although **never** is often better than **right now**.
+        - If the implementation is *hard* to explain, it's a bad idea.
         - If the implementation is easy to explain, it *may* be a good idea.
         - Namespaces are one honking great idea — let's do more of those!
         ]
