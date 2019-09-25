@@ -3,7 +3,7 @@ Assignment 1-B (optional)
 =========================
 
 This assignment is similar to 1-A except that the poem is in Russian now.
-
+Helllo. Test brunch
 """
 
 poem = '''
