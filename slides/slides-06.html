@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Topic 6</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+        class: center, middle
+
+        # Topic 06. TDD, Doctests
+
+        ---
+
+        # Module doctest
+
+        - Module from the standard library: [doctest](https://docs.python.org/3.7/library/doctest.html).
+
+        ---
+
+        # Test when running as a script
+
+        ```python
+        if __name__ == "__main__":
+            import doctest
+            doctest.testmod()
+        ```
+
+        ---
+
+        # Multiline doctests
+
+        ```python
+        >>> # comments are ignored
+        >>> x = 12
+        >>> x
+        12
+        >>> if x == 13:
+        ...     print("yes")
+        ... else:
+        ...     print("no")
+        ...     print("NO")
+        ...     print("NO!!!")
+        ...
+        no
+        NO
+        NO!!!
+        ```
+
+        ---
+
+        # Advanced flags
+
+        - See Python help on the module.
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+        let slideshow = remark.create({
+          highlightLines: true,
+          highlightSyntax: "dark",
+          ratio: "4:3",
+        });
+    </script>
+  </body>
+</html>

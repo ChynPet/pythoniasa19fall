@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Topic 4</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+        class: center, middle
+
+        # Тема 04. Типы данных
+
+        ---
+
+        .pull-left[
+        # Переменные и типы
+
+        ```python
+        >>> x = 1
+        >>> x
+        1
+        >>> x + 2
+        3
+
+        >>> s = 'Hello'
+        >>> s + ' python'
+        'Hello python'
+
+        >>> z
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        NameError: name 'z' is not defined
+        ```
+        ]
+
+        .pull-right[
+        # Типы
+
+        ```python
+        >>> type(x)
+        <class 'int'>
+        >>> type(s)
+        <class 'str'>
+
+        >>> type(1)
+        <class 'int'>
+        >>> type('string')
+        <class 'str'>
+
+        >>> type(int)
+        <class 'type'>
+        >>> type(str)
+        <class 'type'>
+
+        >>> type(None)
+        <class 'NoneType'>
+
+        >>> type(True)
+        <class 'bool'>
+        >>> type(False)
+        <class 'bool'>
+        ```
+        ]
+
+        ---
+
+        # Логический тип bool, логические операторы, операторы сравнения
+
+        Python Library: <br>
+        https://docs.python.org/3/library/stdtypes.html#truth-value-testing
+
+        ---
+
+        # Константа None
+
+        Есть большая разница между понятиями "имя не определено" и "значение переменной не определено".
+
+        ```python
+        >>> x = zzz
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        NameError: name 'zzz' is not defined
+        ```
+
+        ```python
+        >>> x = None
+        >>> x
+        None
+        ```
+
+        ---
+
+        # Числовые типы: int, float, complex
+
+        Python Library: <br>
+        https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex
+
+        Специальные float константы: `"nan"`, `"-inf"`, `"+inf"`.
+
+        Кроме встроенных, в стандартной библиотеке есть модули:
+
+        - fractions.Fraction — рациональные числа
+        - decimal.Decimal — числа с произвольной точностью
+
+        ---
+
+        #  Sequence types (последовательности)
+
+        Python Library: <br>
+        https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range
+
+        - General sequence types:
+            - `list()`: https://docs.python.org/3/library/stdtypes.html#lists
+            - `tuple()`: https://docs.python.org/3/library/stdtypes.html#tuples
+            - `range()`: https://docs.python.org/3/library/stdtypes.html#ranges
+        - Text sequence type:
+            - `str()`: https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str
+        - Binary sequence types:
+            - `bytes()`: https://docs.python.org/3/library/stdtypes.html#bytes-objects
+            - `bytearray()`: https://docs.python.org/3/library/stdtypes.html#bytearray-objects
+
+        ---
+
+        # Преобразование типов
+
+        - Округление
+        - Проверка истинности: https://docs.python.org/3/library/stdtypes.html#truth-value-testing
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+        let slideshow = remark.create({
+          highlightLines: true,
+          highlightSyntax: "dark",
+          ratio: "4:3",
+        });
+    </script>
+  </body>
+</html>

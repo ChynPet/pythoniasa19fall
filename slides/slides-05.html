@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Topic 5</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+        class: center, middle
+
+        # Тема 05. Структуры данных
+        ## list, tuple, dict, set
+
+        ---
+
+        # Range
+
+        ```python
+        >>> help(range)
+        ```
+
+        ```
+        class range(object)
+         |  range(stop) -> range object
+         |  range(start, stop[, step]) -> range object
+         |
+         |  Return an object that produces a sequence of integers from start (inclusive)
+         |  to stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.
+         |  start defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.
+         |  These are exactly the valid indices for a list of 4 elements.
+         |  When step is given, it specifies the increment (or decrement).
+        ```
+
+        ```python
+        >>> range(10)
+        range(0, 10)
+
+        >>> list(range(10))
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+        >>> list(range(2, 10, 3))
+        [2, 5, 8]
+        ```
+
+        ---
+
+        # Range members
+
+        ```python
+        >>> dir(range)
+        ```
+
+        ```
+        ['__bool__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__',
+        '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__',
+        '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__',
+        '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__',
+        '__reversed__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__',
+        'count', 'index', 'start', 'step', 'stop']
+        ```
+
+        - Magic members
+        - Functions: count, index
+        - Data: start, stop, step
+
+        ---
+
+        # Range members
+
+        ## Magic members
+
+        <table class="pure-table pure-table-bordered pure-table-striped">
+            <tbody>
+                <tr><td>__bool__, __repr__, __str__</td><td>bool(x), repr(x), str(x)</td></tr>
+                <tr><td>__contains__</td><td>in</td></tr>
+                <tr><td>__eq__, __ge__, __gt__, __le__, __lt__, __ne__</td><td>==, >=, >, <=, <, !=</td></tr>
+                <tr><td>__format__</td><td>format()</td></tr>
+                <tr><td>__getitem__</td><td>x[i]</td></tr>
+                <tr><td>__init__</td><td>range(...)</td></tr>
+                <tr><td>__len__</td><td>len(x)</td></tr>
+                <tr><td>__reversed__</td><td>reversed(x)</td></tr>
+            </tbody>
+        </table>
+
+        ---
+
+        # Range members
+
+        ## Functions: count, index
+
+        ```python
+        >>> help(range.count)
+        ```
+        ```
+        count(...)
+            rangeobject.count(value) -> integer -- return number of occurrences of value
+        ```
+
+        ```python
+        >>> help(range.index)
+        ```
+        ```
+        count(...)
+            rangeobject.count(value) -> integer -- return number of occurrences of value
+        ```
+        ```python
+        >>> range(3, 10).index(5)
+        2
+        ```
+
+        ---
+
+        # Range members
+
+        ## Data: start, stop, step
+
+        ```python
+        >>> range(3, 10).start
+        3
+        >>> range(3, 10).stop
+        10
+        >>> range(3, 10).step
+        1
+        ```
+
+        ---
+
+        # Mutable list: list
+
+        ```python
+        >>> help(list)
+        ```
+        ```
+        class list(object)
+         |  list(iterable=(), /)
+         |
+         |  Built-in mutable sequence.
+         |
+         |  If no argument is given, the constructor creates a new empty list.
+         |  The argument must be an iterable if specified.
+        ```
+
+        ```python
+        >>> [0, 1, 2, 3]
+        [0, 1, 2, 3]
+
+        >>> list('abcd')
+        ['a', 'b', 'c', 'd']
+
+        >>> list() == []
+        True
+        ```
+
+        ---
+
+        # List members
+
+        ```python
+        >>> dir(list)
+        ```
+        ```
+        ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__',
+        '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__',
+        '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__',
+        '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__',
+        '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__',
+        '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear',
+        'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+        ```
+
+        - Magic member functions:
+            - `__delitem__`, `__setitem__`
+            - `__add__`, `__iadd__`
+            - `__mul__`, `__imul__`, `__rmul__`
+
+        - List as stack (LIFO): append(), pop()
+        - List as queue (FIFO): append(), pop(0)
+
+        ---
+
+        # Immutable list: tuple
+
+        ```python
+        >>> help(tuple)
+        ```
+        ```
+        class tuple(object)
+         |  tuple(iterable=(), /)
+         |
+         |  Built-in immutable sequence.
+         |
+         |  If no argument is given, the constructor returns an empty tuple.
+         |  If iterable is specified the tuple is initialized from iterable's items.
+         |
+         |  If the argument is a tuple, the return value is the same object.
+        ```
+
+        ```python
+        >>> dir(tuple)
+        ```
+        ```
+        ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__',
+        '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__',
+        '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__',
+        '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__',
+        '__repr__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__',
+        'count', 'index']
+        ```
+
+        Нет у `tuple`: `__delitem__`, `__iadd__`, `__imul__`, `__reversed__`, `__setitem__`,
+        `append`, `clear`, `copy`, `extend`, `insert`, `pop`, `remove`, `reverse`, `sort`.
+
+        ---
+
+        # Making lists
+
+        ```python
+        new_list = []
+
+        for i in old_list:
+            if filter(i):
+                new_list.append(transform(i))
+        ```
+
+        ```python
+        new_list = [transform(i) for i in old_list if filter(i)]
+        ```
+
+        But not for tuple. Tuple syntax returns generator, need explicit construction:
+
+        ```python
+        >>> (s for s in 'abcdef')
+        <generator object <genexpr> at 0x106f0ede0>
+        >>> tuple(s for s in 'abcdef')
+        ('a', 'b', 'c', 'd', 'e', 'f')
+        ```
+
+        ---
+
+        # Comparison of sequences
+
+        https://docs.python.org/3/tutorial/datastructures.html#comparing-sequences-and-other-types
+
+        ---
+
+        # Dictionary
+
+        ```python
+        >>> x = {'s': 1}
+        >>> x['s']
+        ```
+
+        ---
+
+        # Set
+
+        ```python
+        >>> x = {1, 2, 3, 3}
+        >>> x
+        {1, 2, 3}
+        ```
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+        let slideshow = remark.create({
+          highlightLines: true,
+          highlightSyntax: "dark",
+          ratio: "4:3",
+        });
+    </script>
+  </body>
+</html>
