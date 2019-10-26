@@ -82,7 +82,7 @@ def task7(text, words):
     Write a function that returns True if a given text can generate an array of words.
     All strings are case insensitive.
 
-    >>> task7('Justin Bieber', ['injures', 'ebb', 'it'])
+    >>> task7('Justin Bieber', ['injures', 'ebb', 'it', 'JustinBieber'])
     True
     >>> task7('Natalie Portman', ['ornamental', 'pita'])
     True
@@ -93,7 +93,6 @@ def task7(text, words):
     """
     
     return False if set([set(i.lower()).issubset(set(text.lower())) for i in words]).issuperset({False}) else True
-    # todo: write your code here
 
     
 if __name__ == "__main__":
