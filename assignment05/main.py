@@ -43,14 +43,10 @@ def main():
         # add boxes
         for (x, y, w, h) in faces:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 3)
-            print(f'Face {bool(list(faces))}: {x} {y} {w} {h}')
         for (x, y, w, h) in eyes:
             if bool(list(faces)):
                 if all( (x1 <= x <= x + w <= x1 + w1 ) and (y1 <= y <= y + h <= y1 + h1) for (x1,y1,h1,w1) in faces):
                     cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
-          
-
-            print(f'Smile: {x} {y} {w} {h}')
 
         # show image
         cv2.imshow('Video', frame)
